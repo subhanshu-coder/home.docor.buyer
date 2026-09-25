@@ -79,21 +79,21 @@ function resultCard(lead) {
   return li;
 }
 
-// async function enrichLead(lead, li) {
-//   if (lead.source === 'apollo') {
-//     return enrichLeadViaApollo(lead, li);
-//   }
-//   const domain = prompt(`Website domain for ${lead.name}? (e.g. examplestore.com)`);
-//   if (!domain) return;
-//   const res = await fetch('/api/enrich/email', {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ leadId: lead.id, domain }),
-//   });
-//   const data = await res.json();
-//   lead.email = data.email;
-//   li.replaceWith(resultCard(lead));
-// }
+async function enrichLead(lead, li) {
+  if (lead.source === 'apollo') {
+    return enrichLeadViaApollo(lead, li);
+  }
+  const domain = prompt(`Website domain for ${lead.name}? (e.g. examplestore.com)`);
+  if (!domain) return;
+  const res = await fetch('/api/enrich/email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ leadId: lead.id, domain }),
+  });
+  const data = await res.json();
+  lead.email = data.email;
+  li.replaceWith(resultCard(lead));
+}
 
 async function enrichLeadViaApollo(lead, li) {
   let domain = lead.domain;
