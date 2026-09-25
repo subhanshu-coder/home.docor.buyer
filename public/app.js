@@ -58,22 +58,22 @@ function renderResults(results) {
   results.forEach((r) => resultsEl.appendChild(resultCard(r)));
 }
 
-function resultCard(lead) {
-  const li = document.createElement('li');
-  li.className = 'result-item';
-  li.innerHTML = `
-    <div>
-      <div class="result-name">${lead.name}</div>
-      <div class="result-address">${lead.address || ''}</div>
-      <div class="result-email ${lead.email ? '' : 'missing'}">
-        ${lead.email ? `${lead.contactName ? lead.contactName + ' — ' : ''}${lead.email}` : 'Email not enriched yet'}
-      </div>
-    </div>
-    <div class="row-actions">
-      <button data-action="enrich">Find email</button>
-      <button data-action="compose" ${lead.email ? '' : 'disabled'}>Compose</button>
-    </div>
-  `;
+// function resultCard(lead) {
+//   const li = document.createElement('li');
+//   li.className = 'result-item';
+//   li.innerHTML = `
+//     <div>
+//       <div class="result-name">${lead.name}</div>
+//       <div class="result-address">${lead.address || ''}</div>
+//       <div class="result-email ${lead.email ? '' : 'missing'}">
+//         ${lead.email ? `${lead.contactName ? lead.contactName + ' — ' : ''}${lead.email}` : 'Email not enriched yet'}
+//       </div>
+//     </div>
+//     <div class="row-actions">
+//       <button data-action="enrich">Find email</button>
+//       <button data-action="compose" ${lead.email ? '' : 'disabled'}>Compose</button>
+//     </div>
+//   `;
   li.querySelector('[data-action="enrich"]').addEventListener('click', () => enrichLead(lead, li));
   li.querySelector('[data-action="compose"]').addEventListener('click', () => openComposer(lead));
   return li;
