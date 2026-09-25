@@ -15,19 +15,19 @@ document.querySelectorAll('.nav-item').forEach((btn) => {
 });
 
 // --- Settings ---
-// const settingsForm = document.getElementById('settings-form');
-// if (state.sender) {
-//   settingsForm.sellerName.value = state.sender.sellerName || '';
-//   settingsForm.sellerReplyTo.value = state.sender.sellerReplyTo || '';
-//   settingsForm.sellerAddress.value = state.sender.sellerAddress || '';
-// }
-// settingsForm.addEventListener('submit', (e) => {
-//   e.preventDefault();
-//   const data = Object.fromEntries(new FormData(settingsForm));
-//   localStorage.setItem('sender', JSON.stringify(data));
-//   state.sender = data;
-//   alert('Saved. This is included on every outreach email you send.');
-// });
+const settingsForm = document.getElementById('settings-form');
+if (state.sender) {
+  settingsForm.sellerName.value = state.sender.sellerName || '';
+  settingsForm.sellerReplyTo.value = state.sender.sellerReplyTo || '';
+  settingsForm.sellerAddress.value = state.sender.sellerAddress || '';
+}
+settingsForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const data = Object.fromEntries(new FormData(settingsForm));
+  localStorage.setItem('sender', JSON.stringify(data));
+  state.sender = data;
+  alert('Saved. This is included on every outreach email you send.');
+});
 
 // --- Search ---
 const searchForm = document.getElementById('search-form');
