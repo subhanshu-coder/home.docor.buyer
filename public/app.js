@@ -49,14 +49,14 @@ searchForm.addEventListener('submit', async (e) => {
   renderResults(data.results || []);
 });
 
-function renderResults(results) {
-  if (!results.length) {
-    resultsEl.innerHTML = '<li>No matches. Try a broader category or nearby city.</li>';
-    return;
-  }
-  resultsEl.innerHTML = '';
-  results.forEach((r) => resultsEl.appendChild(resultCard(r)));
-}
+// function renderResults(results) {
+//   if (!results.length) {
+//     resultsEl.innerHTML = '<li>No matches. Try a broader category or nearby city.</li>';
+//     return;
+//   }
+//   resultsEl.innerHTML = '';
+//   results.forEach((r) => resultsEl.appendChild(resultCard(r)));
+// }
 
 function resultCard(lead) {
   const li = document.createElement('li');
