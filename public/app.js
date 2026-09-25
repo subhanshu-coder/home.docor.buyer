@@ -40,14 +40,14 @@ searchForm.addEventListener('submit', async (e) => {
 
   const endpoint = source === 'google' ? '/api/buyers/search' : '/api/apollo/search-companies';
 
-//   const res = await fetch(endpoint, {
-//     method: 'POST',
-//     headers: { 'Content-Type': 'application/json' },
-//     body: JSON.stringify({ category, city, state: st }),
-//   });
-//   const data = await res.json();
-//   renderResults(data.results || []);
-// });
+  const res = await fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ category, city, state: st }),
+  });
+  const data = await res.json();
+  renderResults(data.results || []);
+});
 
 function renderResults(results) {
   if (!results.length) {
