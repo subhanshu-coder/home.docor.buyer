@@ -4,15 +4,15 @@ const state = {
 };
 
 // --- Nav ---
-document.querySelectorAll('.nav-item').forEach((btn) => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.nav-item').forEach((b) => b.classList.remove('active'));
-    document.querySelectorAll('.view').forEach((v) => v.classList.add('hidden'));
-    btn.classList.add('active');
-    document.getElementById(`view-${btn.dataset.view}`).classList.remove('hidden');
-    if (btn.dataset.view === 'leads') loadLeads();
-  });
-});
+// document.querySelectorAll('.nav-item').forEach((btn) => {
+//   btn.addEventListener('click', () => {
+//     document.querySelectorAll('.nav-item').forEach((b) => b.classList.remove('active'));
+//     document.querySelectorAll('.view').forEach((v) => v.classList.add('hidden'));
+//     btn.classList.add('active');
+//     document.getElementById(`view-${btn.dataset.view}`).classList.remove('hidden');
+//     if (btn.dataset.view === 'leads') loadLeads();
+//   });
+// });
 
 // --- Settings ---
 const settingsForm = document.getElementById('settings-form');
