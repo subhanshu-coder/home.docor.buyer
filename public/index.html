@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ledger — Find home decor buyers</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="rail">
+      <div class="brand">
+        <span class="brand-mark">L</span>
+        <span class="brand-name">Ledger</span>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-view="search">Find buyers</button>
+        <button class="nav-item" data-view="leads">Leads</button>
+        <button class="nav-item" data-view="settings">Sender details</button>
+      </nav>
+      <div class="rail-foot">For home decor sellers, US market</div>
+    </aside>
+
+    <main class="main">
+      <section id="view-search" class="view">
+        <header class="view-head">
+          <h1>Find buyers</h1>
+          <p>Search boutiques, gift shops and interiors retailers who might carry your line.</p>
+        </header>
+
+        <form id="search-form" class="search-form">
+          <label>
+            <span>Buyer type</span>
+            <input type="text" name="category" placeholder="home decor boutique" required />
+          </label>
+          <label>
+            <span>City</span>
+            <input type="text" name="city" placeholder="Austin" required />
+          </label>
+          <label>
+            <span>State</span>
+            <input type="text" name="state" placeholder="TX" maxlength="2" required />
+          </label>
+          <label>
+            <span>Source</span>
+            <select name="source">
+              <option value="apollo">Apollo</option>
+              <option value="google">Google Places</option>
+            </select>
+          </label>
+          <button type="submit">Search</button>
+        </form>
+
+        <ul id="results" class="result-list"></ul>
+      </section>
+
+      <section id="view-leads" class="view hidden">
+        <header class="view-head">
+          <h1>Leads</h1>
+          <p>Everyone you've found so far. Enrich an email, then send outreach.</p>
+        </header>
+        <div id="leads-table" class="leads-table"></div>
+      </section>
+
+      <section id="view-settings" class="view hidden">
+        <header class="view-head">
+          <h1>Sender details</h1>
+          <p>Required on every email you send — this is what CAN-SPAM calls for.</p>
+        </header>
+        <form id="settings-form" class="settings-form">
+          <label><span>Your business name</span><input type="text" name="sellerName" required /></label>
+          <label><span>Reply-to email</span><input type="email" name="sellerReplyTo" required /></label>
+          <label><span>Physical mailing address</span><textarea name="sellerAddress" required></textarea></label>
+          <button type="submit">Save</button>
+        </form>
+      </section>
+    </main>
+  </div>
+
+  <div id="email-modal" class="modal hidden">
+    <div class="modal-card">
+      <h2>Send outreach</h2>
+      <p id="modal-to" class="modal-to"></p>
+      <label><span>Subject</span><input type="text" id="modal-subject" /></label>
+      <label><span>Message</span><textarea id="modal-body" rows="8"></textarea></label>
+      <div class="modal-actions">
+        <button id="modal-cancel" class="ghost">Cancel</button>
+        <button id="modal-send">Send email</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
