@@ -8,6 +8,7 @@ const outreachRoute = require('./routes/outreach');
 const apolloRoute = require('./routes/apollo');
 
 const app = express();
+
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -16,7 +17,12 @@ app.use('/api/enrich', enrichRoute);
 app.use('/api/outreach', outreachRoute);
 app.use('/api/apollo', apolloRoute);
 
-app.get('/health', (req, res) => res.json({ ok: true }));
+app.get('/health', (req, res) => {
+  res.json({ ok: true });
+});
 
-const PORT = process.env.PORT || 3001;
-app.listen(PORT, () => console.log(`Home Decor Buyer Finder running on port ${PORT}`));
+const PORT = 3001;
+
+app.listen(PORT, () => {
+  console.log(`Home Decor Buyer Finder running on http://localhost:${PORT}`);
+});
