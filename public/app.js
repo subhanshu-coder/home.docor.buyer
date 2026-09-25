@@ -30,15 +30,15 @@ settingsForm.addEventListener('submit', (e) => {
 });
 
 // --- Search ---
-const searchForm = document.getElementById('search-form');
-const resultsEl = document.getElementById('results');
+// const searchForm = document.getElementById('search-form');
+// const resultsEl = document.getElementById('results');
 
-searchForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const { category, city, state: st, source } = Object.fromEntries(new FormData(searchForm));
-  resultsEl.innerHTML = '<li>Searching…</li>';
+// searchForm.addEventListener('submit', async (e) => {
+//   e.preventDefault();
+//   const { category, city, state: st, source } = Object.fromEntries(new FormData(searchForm));
+//   resultsEl.innerHTML = '<li>Searching…</li>';
 
-  const endpoint = source === 'google' ? '/api/buyers/search' : '/api/apollo/search-companies';
+//   const endpoint = source === 'google' ? '/api/buyers/search' : '/api/apollo/search-companies';
 
   const res = await fetch(endpoint, {
     method: 'POST',
